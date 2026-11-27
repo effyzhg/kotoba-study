@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f3f2ec">
+  <meta name="description" content="A private, browser-based Japanese vocabulary and spaced-repetition practice tool.">
+  <title>Kotoba — Japanese study, at your pace</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./src/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-copy="skip">Skip to study</a>
+  <header class="masthead">
+    <a class="brand" href="./" aria-label="Kotoba home" translate="no"><span class="brand-mark" aria-hidden="true">言</span><span>Kotoba<span class="brand-period">.</span></span></a>
+    <p class="privacy-note" data-copy="privacy">Your progress stays in this browser</p>
+    <div id="display-settings" class="header-actions" role="group" aria-label="Display settings">
+      <button id="language-toggle" class="quiet-button" type="button" aria-label="Switch language">中文</button>
+      <button id="theme-toggle" class="quiet-button theme-button" type="button" aria-label="Switch color theme"><span aria-hidden="true">◐</span><span data-copy="theme">Theme</span></button>
+    </div>
+  </header>
+
+  <main id="main" class="page-shell">
+    <section class="intro" aria-labelledby="page-title">
+      <div class="intro-copy">
+        <p class="eyebrow" data-copy="eyebrow">A small practice, kept close</p>
+        <h1 id="page-title" data-copy="title">Japanese, one recall at a time.</h1>
+        <p class="intro-text" data-copy="intro">Build a steady habit with short vocabulary sessions. Rate what you remember; the next review date follows your recall.</p>
+      </div>
+      <div class="day-mark" aria-label="Study session"><span id="today-label"></span><strong id="today-number"></strong><span data-copy="today">today</span></div>
+    </section>
+
+    <section id="study-workspace" class="workspace" aria-label="Japanese study workspace">
+      <aside class="study-rail">
+        <div class="rail-heading"><h2 data-copy="yourStudy">Your study</h2><span class="rail-rule"></span></div>
+        <div id="deck-picker" class="deck-picker" role="group" aria-label="Choose a deck">
+          <button class="deck-choice is-active" type="button" data-deck="starter" aria-pressed="true">
+            <span><strong data-copy="starterDeck">Everyday words</strong><small data-copy="starterMeta">Starter set · 16 words</small></span><span class="deck-arrow" aria-hidden="true">↗</span>
+          </button>
+          <button class="deck-choice" type="button" data-deck="mine" aria-pressed="false">
+            <span><strong data-copy="myWords">My words</strong><small id="my-words-count">0 cards</small></span><span class="deck-arrow" aria-hidden="true">↗</span>
+          </button>
+        </div>
+        <div class="daily-setting">
+          <label for="new-cap" data-copy="newLimit">New cards today</label>
+          <div class="stepper"><button type="button" id="cap-down" aria-label="Decrease daily new card limit">−</button><input id="new-cap" name="newPerDay" type="number" min="0" max="100" step="1" value="10" inputmode="numeric" autocomplete="off"><button type="button" id="cap-up" aria-label="Increase daily new card limit">+</button></div>
+          <p data-copy="newLimitHint">Reviews due today are always included.</p>
+        </div>
+        <label class="speech-setting"><input id="speech-toggle" type="checkbox"><span data-copy="autoSpeak">Speak Japanese after reveal</span></label>
+        <button id="start-session" class="start-button" type="button" disabled><span data-copy="start">Start a session</span><span aria-hidden="true">↗</span></button>
+        <p class="keyboard-hint"><kbd>Space</kbd><span data-copy="keyboardReveal">reveal</span><kbd>1–4</kbd><span data-copy="keyboardRate">rate recall</span></p>
+      </aside>
+
+      <section class="practice-area" aria-label="Flashcard practice">
+        <div class="practice-topline"><p id="session-label" data-copy="ready">Ready for a short session</p><p id="queue-count">16 new</p></div>
+        <div class="progress-track" aria-hidden="true"><span id="progress-bar"></span></div>
+        <section id="pre-session" class="pre-session" aria-labelledby="pre-session-title">
+          <div class="pre-session-top"><span data-copy="sessions">A calm review set</span><span id="ready-count">16 ready</span></div>
+          <div class="pre-session-mark" lang="ja" aria-hidden="true">言葉</div>
+          <div class="pre-session-copy"><p class="eyebrow" data-copy="nextUp">Next, at your pace</p><h2 id="pre-session-title" data-copy="startWithWord">Start with one word.</h2><p data-copy="startAdviceLong">Recall first, then reveal the reading and meaning. Your rating sets the next review date.</p></div>
+        </section>
+        <article class="study-card" id="study-card" aria-labelledby="card-front" hidden>
+          <div class="card-head"><span id="card-kind" data-copy="newWord">New word</span><span id="card-position">—</span></div>
+          <div class="card-prompt">
+            <p data-copy="prompt">Recall the reading and meaning</p>
+            <h2 id="card-front">猫</h2>
+          </div>
+          <div class="card-answer" id="card-answer" hidden>
+            <div class="answer-reading"><span data-copy="reading">Reading</span><strong id="card-kana">ねこ</strong><button id="speak-button" type="button" class="speak-button" aria-label="Play Japanese pronunciation">◖))</button></div>
+            <div class="answer-meanings"><p><span data-copy="meaning">Meaning</span><strong id="card-meaning">cat</strong></p><p class="example-line"><span data-copy="example">In a sentence</span><strong id="card-example">猫がいます。</strong><em id="card-example-translation">There is a cat.</em></p></div>
+          </div>
+          <div class="card-bottom"><span id="card-status" role="status" aria-live="polite" data-copy="pressSpace">Press Space or reveal to begin.</span><button id="reveal-button" type="button" class="reveal-button" disabled><span data-copy="reveal">Reveal answer</span><span aria-hidden="true">↗</span></button></div>
+          <div id="rating-row" class="rating-row" hidden aria-label="Rate your recall">
+            <button type="button" data-rating="again"><span class="rating-word" data-copy="again">Again</span><small id="interval-again">1 day</small><kbd>1</kbd></button>
+            <button type="button" data-rating="hard"><span class="rating-word" data-copy="hard">Hard</span><small id="interval-hard">1 day</small><kbd>2</kbd></button>
+            <button type="button" data-rating="good"><span class="rating-word" data-copy="good">Good</span><small id="interval-good">1 day</small><kbd>3</kbd></button>
+            <button type="button" data-rating="easy"><span class="rating-word" data-copy="easy">Easy</span><small id="interval-easy">1 day</small><kbd>4</kbd></button>
+          </div>
+        </article>
+        <section id="session-complete" class="session-complete" hidden aria-live="polite">
+          <p class="eyebrow" data-copy="setComplete">Session complete</p><h2 data-copy="niceWork">A little more familiar.</h2><p id="completion-copy"></p><button id="another-session" class="start-button" type="button"><span data-copy="studyAgain">Study again</span><span aria-hidden="true">↗</span></button>
+        </section>
+        <p id="storage-warning" class="storage-warning" role="status" hidden data-copy="storageWarning">Browser storage is unavailable. This session will work, but progress will be lost when you leave. Export a backup before closing.</p>
+      </section>
+    </section>
+
+    <section class="library-section" aria-labelledby="library-title">
+      <div class="section-heading"><div><p class="eyebrow" data-copy="keepBuilding">Keep building your deck</p><h2 id="library-title" data-copy="yourLibrary">Your word library</h2></div><p data-copy="libraryIntro">Add a word yourself, or bring in a deck you already use. Everything here stays on this device.</p></div>
+      <div class="library-tools">
+        <form id="add-card-form" class="add-card-form">
+          <label><span data-copy="japanese">Japanese</span><input name="jp" required maxlength="80" autocomplete="off" placeholder="言葉…" lang="ja"></label>
+          <label><span data-copy="readingLabel">Reading</span><input name="kana" maxlength="100" autocomplete="off" placeholder="ことば…" lang="ja"></label>
+          <label><span data-copy="meaningEn">Meaning · English</span><input name="en" required maxlength="240" autocomplete="off" placeholder="word…"></label>
+          <label><span data-copy="meaningZh">Meaning · Chinese</span><input name="zh" maxlength="240" autocomplete="off" placeholder="词语…"></label>
+          <button type="submit" class="add-button"><span data-copy="addWord">Add word</span><span aria-hidden="true">＋</span></button>
+        </form>
+        <div class="data-tools"><button id="export-button" type="button" class="text-action" data-copy="export">Export backup</button><input id="import-file" class="file-input" type="file" accept="application/json,.json" aria-label="Choose a Kotoba backup file"><label for="import-file" class="text-action import-label" data-copy="import">Import backup</label><span id="data-status" role="status" aria-live="polite"></span></div>
+      </div>
+      <div id="library-list" class="library-list" aria-live="polite"></div>
+    </section>
+    <footer class="page-footer"><p data-copy="privacyDetail">No account, server or analytics. Your study history is stored in this browser only; use Export backup to move it to another device.</p><span>Kotoba · ことば</span></footer>
+  </main>
+
+  <noscript><div class="noscript-note"><h2>Study preview · 学习预览</h2><p>猫 · ねこ — cat / 猫</p><p>This static starter card is visible without JavaScript. Enable JavaScript to run review sessions, manage your own word deck and save progress in this browser.</p></div></noscript>
+</body>
+</html>

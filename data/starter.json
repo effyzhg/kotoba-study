@@ -1,0 +1,18 @@
+[
+  {"id":"jp-001","jp":"猫","kana":"ねこ","en":"cat","zh":"猫","example":"猫がいます。","exampleEn":"There is a cat.","exampleZh":"有一只猫。"},
+  {"id":"jp-002","jp":"水","kana":"みず","en":"water","zh":"水","example":"水を飲みます。","exampleEn":"I drink water.","exampleZh":"喝水。"},
+  {"id":"jp-003","jp":"山","kana":"やま","en":"mountain","zh":"山","example":"山に登ります。","exampleEn":"I climb a mountain.","exampleZh":"爬山。"},
+  {"id":"jp-004","jp":"本","kana":"ほん","en":"book","zh":"书","example":"本を読みます。","exampleEn":"I read a book.","exampleZh":"读书。"},
+  {"id":"jp-005","jp":"食べる","kana":"たべる","en":"to eat","zh":"吃","example":"朝ごはんを食べます。","exampleEn":"I eat breakfast.","exampleZh":"吃早饭。"},
+  {"id":"jp-006","jp":"学校","kana":"がっこう","en":"school","zh":"学校","example":"学校へ行きます。","exampleEn":"I go to school.","exampleZh":"去学校。"},
+  {"id":"jp-007","jp":"友達","kana":"ともだち","en":"friend","zh":"朋友","example":"友達と話します。","exampleEn":"I talk with a friend.","exampleZh":"和朋友聊天。"},
+  {"id":"jp-008","jp":"今日","kana":"きょう","en":"today","zh":"今天","example":"今日は暑いです。","exampleEn":"It is hot today.","exampleZh":"今天很热。"},
+  {"id":"jp-009","jp":"見る","kana":"みる","en":"to see; to watch","zh":"看；观看","example":"映画を見ます。","exampleEn":"I watch a film.","exampleZh":"看电影。"},
+  {"id":"jp-010","jp":"聞く","kana":"きく","en":"to listen; to ask","zh":"听；询问","example":"音楽を聞きます。","exampleEn":"I listen to music.","exampleZh":"听音乐。"},
+  {"id":"jp-011","jp":"行く","kana":"いく","en":"to go","zh":"去","example":"駅へ行きます。","exampleEn":"I go to the station.","exampleZh":"去车站。"},
+  {"id":"jp-012","jp":"大きい","kana":"おおきい","en":"big; large","zh":"大的","example":"大きい犬です。","exampleEn":"It is a big dog.","exampleZh":"是一只大狗。"},
+  {"id":"jp-013","jp":"小さい","kana":"ちいさい","en":"small","zh":"小的","example":"小さい店です。","exampleEn":"It is a small shop.","exampleZh":"是一家小店。"},
+  {"id":"jp-014","jp":"雨","kana":"あめ","en":"rain","zh":"雨","example":"雨が降っています。","exampleEn":"It is raining.","exampleZh":"正在下雨。"},
+  {"id":"jp-015","jp":"話す","kana":"はなす","en":"to speak; to talk","zh":"说话；交谈","example":"日本語を話します。","exampleEn":"I speak Japanese.","exampleZh":"说日语。"},
+  {"id":"jp-016","jp":"考える","kana":"かんがえる","en":"to think","zh":"思考","example":"答えを考えます。","exampleEn":"I think about the answer.","exampleZh":"思考答案。"}
+]
